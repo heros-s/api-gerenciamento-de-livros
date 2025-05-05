@@ -1,6 +1,7 @@
 using API.Models;
+using API.Data;
 
-namespace API.Data;
+namespace API.Repositories;
 
 public class LivroRepository : ILivroRepository
 {
@@ -14,6 +15,12 @@ public class LivroRepository : ILivroRepository
     public void Cadastrar(Livro livro)
     {
         _context.livros.Add(livro);
+        _context.SaveChanges();
+    }
+
+    public void Deletar(Livro livro)
+    {
+        _context.livros.Remove(livro);
         _context.SaveChanges();
     }
 

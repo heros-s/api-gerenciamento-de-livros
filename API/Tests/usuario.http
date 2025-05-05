@@ -5,6 +5,22 @@ POST {{url_base}}/usuario/cadastrar
 Content-Type: application/json
 
 {
-    "nome": "Gustavo",
-    "idade": 20
+    "nome": "Admin",
+    "email": "adm",
+    "senha": "123456"
 }
+
+### Login Usuário
+POST {{url_base}}/usuario/login
+Content-Type: application/json
+
+{
+    "email": "adm",
+    "senha": "123456"
+}
+
+### Listar Usuários
+GET {{url_base}}/usuario/listar
+
+### Deletar Usuário
+DELETE {{url_base}}/usuario/deletar/6

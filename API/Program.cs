@@ -1,5 +1,9 @@
 using API.Data;
+using API.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,25 @@ builder.Services.AddDbContext<AppDataContext>(options =>
     )
 );
 
+var chaveJwt = builder.Configuration["JwtSettings:SecretKey"];
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+			ClockSkew = TimeSpan.Zero,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(chaveJwt!))
+        };
+    });
+
+builder.Services.AddAuthorization();
+
 // Configure dependency injection
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
@@ -30,8 +53,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

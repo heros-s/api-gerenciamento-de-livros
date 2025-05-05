@@ -219,3 +219,11 @@ C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\obj\Debug\net8.0\
 C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\obj\Debug\net8.0\API.pdb
 C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\obj\Debug\net8.0\ref\API.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Administrator\Desktop\api-gerenciamento-de-livros\API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

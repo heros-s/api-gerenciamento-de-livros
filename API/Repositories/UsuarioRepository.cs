@@ -1,6 +1,8 @@
 using API.Models;
+using API.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace API.Data;
+namespace API.Repositories;
 
 public class UsuarioRepository : IUsuarioRepository
 {
@@ -16,10 +18,20 @@ public class UsuarioRepository : IUsuarioRepository
         _context.usuarios.Add(usuario);
         _context.SaveChanges();
     }
+    public void Deletar(Usuario usuario)
+    {
+        _context.usuarios.Remove(usuario);
+        _context.SaveChanges();
+    }
 
     public List<Usuario> Listar()
     {
         return _context.usuarios.ToList();
     }
     
+    public Usuario? BuscarUsuarioPorEmailSenha(string email, string senha)
+    {
+        return _context.usuarios
+            .FirstOrDefault(u => u.Email == email && u.Senha == senha);
+    }
 }
