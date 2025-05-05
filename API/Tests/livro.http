@@ -1,0 +1,11 @@
+@url_base = http://localhost:5249/api
+
+### Cadastrar  Livro
+POST {{url_base}}/livro/cadastrar     
+Content-Type: application/json
+
+{
+    "nome" : "Harry AaaAa",
+    "autor" : "JK Rowling",
+    "PrecoDia" : 300.00
+}
