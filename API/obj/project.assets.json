@@ -2857,19 +2857,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\Logcomex\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\api-gerenciamento-de-livros\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Logcomex\\Desktop\\TrabalhoBiblioteca\\api-gerenciamento-de-livros\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\api-gerenciamento-de-livros\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\api-gerenciamento-de-livros\\API\\obj\\",
+      "projectPath": "C:\\Users\\Logcomex\\Desktop\\TrabalhoBiblioteca\\api-gerenciamento-de-livros\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Logcomex\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Logcomex\\Desktop\\TrabalhoBiblioteca\\api-gerenciamento-de-livros\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Logcomex\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -2936,7 +2936,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

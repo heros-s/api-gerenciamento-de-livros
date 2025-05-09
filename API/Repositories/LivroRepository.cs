@@ -28,5 +28,10 @@ public class LivroRepository : ILivroRepository
     {
         return _context.livros.ToList();
     }
+
+    public void Salvar()
+    {
+        _context.SaveChanges();
+    }
     
 }

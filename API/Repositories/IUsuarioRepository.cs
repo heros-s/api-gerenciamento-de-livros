@@ -7,4 +7,6 @@ public interface IUsuarioRepository
     List<Usuario> Listar();
     void Deletar(Usuario usuario);
     Usuario? BuscarUsuarioPorEmailSenha(string email, string senha);
+
+    void Salvar();
 }

@@ -6,5 +6,5 @@ public interface ILivroRepository
     void Cadastrar(Livro livro);
     List<Livro> Listar();
     void Deletar(Livro livro);
-    
+    void Salvar();
 }

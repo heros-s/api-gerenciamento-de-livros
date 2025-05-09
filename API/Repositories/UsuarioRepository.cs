@@ -1,6 +1,5 @@
 using API.Models;
 using API.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Repositories;
 
@@ -33,5 +32,10 @@ public class UsuarioRepository : IUsuarioRepository
     {
         return _context.usuarios
             .FirstOrDefault(u => u.Email == email && u.Senha == senha);
+    }
+
+    public void Salvar()
+    {
+        _context.SaveChanges();
     }
 }

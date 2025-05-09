@@ -1,4 +1,5 @@
 using API.Models;
+using EmprestimoLivros.Models;
 using Microsoft.EntityFrameworkCore;    
 
 namespace API.Data;
@@ -9,4 +10,5 @@ public class AppDataContext : DbContext
         base(options) { }
     public DbSet<Livro> livros { get; set; }       
     public DbSet<Usuario> usuarios { get; set; }  
+    public DbSet<Emprestimo> emprestimos { get; set; }
 }
