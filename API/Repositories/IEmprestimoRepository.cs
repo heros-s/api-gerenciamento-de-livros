@@ -3,7 +3,7 @@ using EmprestimoLivros.Models;
 
 namespace API.Repositories
 {
-    public interface EmprestimoRepository
+    public interface IEmprestimoRepository
     {
         void Cadastrar(Emprestimo emprestimo);
         void Devolucao(int EmprestimoId);

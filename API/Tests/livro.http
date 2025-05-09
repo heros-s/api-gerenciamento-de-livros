@@ -1,18 +1,20 @@
 @url_base = http://localhost:5249/api
 
 ### Cadastrar  Livro
-POST {{url_base}}/livro/cadastrar     
+POST {{url_base}}/livro/cadastrar
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTc0NjQyNDE4NX0.cFJJyBCWNQQg-1NnjlZaAY_IRxqX4313ndnDRVc4X2Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTc0NjgzNDE3NH0.OxxPJ0gisuXj4SKHJNuMMhFXjSgoqTBTUmfj8mIlvDI
+
 
 {
-    "nome" : "Harry AaaddawdAa",
+    "nome" : "Harry POTAAAAAA",
     "autor" : "JK Rowling",
     "PrecoDia" : 300.00
 }
 
 ###Listar Livros
 GET {{url_base}}/livro/listar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTc0NjgzNDE3NH0.OxxPJ0gisuXj4SKHJNuMMhFXjSgoqTBTUmfj8mIlvDI
 
 ### Deletar Livro
 DELETE {{url_base}}/livro/deletar/12
