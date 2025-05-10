@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucas\\Documents\\Faculdade\\2025\\Desenvolvimento Web Avançado\\Trabalho10Pontos\\api-gerenciamento-de-livros\\API\\API.csproj": {}
+    "C:\\Users\\heros\\Documents\\Code\\C#\\api-gerenciamento-de-livros\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucas\\Documents\\Faculdade\\2025\\Desenvolvimento Web Avançado\\Trabalho10Pontos\\api-gerenciamento-de-livros\\API\\API.csproj": {
+    "C:\\Users\\heros\\Documents\\Code\\C#\\api-gerenciamento-de-livros\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucas\\Documents\\Faculdade\\2025\\Desenvolvimento Web Avançado\\Trabalho10Pontos\\api-gerenciamento-de-livros\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\heros\\Documents\\Code\\C#\\api-gerenciamento-de-livros\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\lucas\\Documents\\Faculdade\\2025\\Desenvolvimento Web Avançado\\Trabalho10Pontos\\api-gerenciamento-de-livros\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucas\\Documents\\Faculdade\\2025\\Desenvolvimento Web Avançado\\Trabalho10Pontos\\api-gerenciamento-de-livros\\API\\obj\\",
+        "projectPath": "C:\\Users\\heros\\Documents\\Code\\C#\\api-gerenciamento-de-livros\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\heros\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\heros\\Documents\\Code\\C#\\api-gerenciamento-de-livros\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\heros\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -48,6 +49,12 @@
               "version": "[8.*, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.*, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
@@ -73,6 +80,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -81,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

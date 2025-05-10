@@ -8,7 +8,7 @@ namespace API.Controllers
     [ApiController]
     [Route("api/emprestimo/")]
 
-     public class EmprestimoController : ControllerBase
+    public class EmprestimoController : ControllerBase
     {
         private readonly IEmprestimoRepository _repository;
 
@@ -26,6 +26,7 @@ namespace API.Controllers
         }
 
         [HttpGet("listar")]
+        [Authorize]
         public IActionResult Listar()
         {
         return Ok(_repository.Listar());

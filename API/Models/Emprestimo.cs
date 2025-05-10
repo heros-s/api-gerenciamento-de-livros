@@ -1,4 +1,5 @@
 using System.Reflection.Metadata.Ecma335;
+using System.Text.Json.Serialization;
 using API.Models;
 
 namespace EmprestimoLivros.Models
@@ -8,8 +9,8 @@ namespace EmprestimoLivros.Models
         public int Id { get; set; }
         public int UsuarioId { get; set; }
         public int LivroId { get; set; }
-        public DateTime DataEmprestimo { get; set; }
-        public DateTime? DataDevolucao { get; set; }
+        public DateTime DataEmprestimo { get; set; } = DateTime.Now;
+        public DateTime? DataDevolucao { get; set; } = DateTime.Now.AddDays(7);
         public decimal ValorLocacao { get; set; }
         public decimal Multa { get; set; }
         public Livro Livro { get; set; } = new Livro();
@@ -17,7 +18,7 @@ namespace EmprestimoLivros.Models
         
         public bool Atrasado()
         {
-            return DataDevolucao == null && (DateTime.Now - DataEmprestimo).TotalDays > 5;
+            return DataDevolucao == null && (DateTime.Now - DataEmprestimo).TotalDays > 7;
         }
 
         public decimal CalcularMulta()

@@ -22,6 +22,23 @@ namespace API.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("API.Models.Autor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Autores");
+                });
+
             modelBuilder.Entity("API.Models.Livro", b =>
                 {
                     b.Property<int>("Id")
@@ -30,9 +47,8 @@ namespace API.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Autor")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("AutorId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Genero")
                         .IsRequired()
@@ -46,6 +62,8 @@ namespace API.Migrations
                         .HasColumnType("double");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AutorId");
 
                     b.ToTable("livros");
                 });
@@ -119,6 +137,17 @@ namespace API.Migrations
                     b.ToTable("emprestimos");
                 });
 
+            modelBuilder.Entity("API.Models.Livro", b =>
+                {
+                    b.HasOne("API.Models.Autor", "Autor")
+                        .WithMany("Livros")
+                        .HasForeignKey("AutorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Autor");
+                });
+
             modelBuilder.Entity("EmprestimoLivros.Models.Emprestimo", b =>
                 {
                     b.HasOne("API.Models.Livro", "Livro")
@@ -136,6 +165,11 @@ namespace API.Migrations
                     b.Navigation("Livro");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("API.Models.Autor", b =>
+                {
+                    b.Navigation("Livros");
                 });
 #pragma warning restore 612, 618
         }

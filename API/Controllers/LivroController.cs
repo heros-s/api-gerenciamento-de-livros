@@ -40,6 +40,5 @@ namespace API.Controllers
             _repository.Deletar(livro);
             return Ok();
         }
-   
     }
 }
