@@ -32,7 +32,7 @@ namespace API.Controllers
         public IActionResult Login([FromBody] Usuario usuario)
         {
             Usuario? usuarioExistente = _repository
-                .BuscarUsuarioPorEmailSenha(usuario.Email, usuario.Senha);
+                .BuscarUsuarioPorEmail(usuario.Email);
 
             if (usuarioExistente == null)
             {

@@ -1,13 +1,15 @@
-@url = "http://localhost:5249/api/emprestimo"
+@url_base = http://localhost:5249/api/emprestimo
 
 ### Cadastrar um emprestimo
-POST {{url}}/cadastrar
+POST {{url_base}}/cadastrar
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiaGVyb3NAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTc0Njg0NjEzN30.xjeqNsIN8wAlD47yHfxV0pP0E1kSJwwJMsf_Zrou3zw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTc0NzAxMzk3M30.UDI0G0k3l1XTttLKYiklucthmnsrL-4rej0DW2ND7sY
 
 
 {
-    "IdUsuario": "1",
-    "Livro": "Harry POTAAAAAA",
-    "Data":  "JK Rowling"
+    "UsuarioId": 1,
+    "LivroId": 1
 }
+###
+GET {{url_base}}/listar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTc0NzAxMTQ2OX0.7Sms9vOOjNywKV4eMEcbFxLP5FHQyWe1ntl4CemS0ig

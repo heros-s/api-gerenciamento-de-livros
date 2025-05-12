@@ -6,7 +6,8 @@ public interface IUsuarioRepository
     void Cadastrar(Usuario usuario);
     List<Usuario> Listar();
     void Deletar(Usuario usuario);
-    Usuario? BuscarUsuarioPorEmailSenha(string email, string senha);
+    Usuario? BuscarUsuarioPorEmail(string email);
 
     void Salvar();
+
 }

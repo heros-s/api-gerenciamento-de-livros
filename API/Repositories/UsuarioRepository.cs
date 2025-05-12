@@ -28,11 +28,13 @@ public class UsuarioRepository : IUsuarioRepository
         return _context.usuarios.ToList();
     }
     
-    public Usuario? BuscarUsuarioPorEmailSenha(string email, string senha)
+    public Usuario? BuscarUsuarioPorEmail(string email)
     {
         return _context.usuarios
-            .FirstOrDefault(u => u.Email == email && u.Senha == senha);
+            .FirstOrDefault(u => u.Email == email);
     }
+
+    
 
     public void Salvar()
     {
