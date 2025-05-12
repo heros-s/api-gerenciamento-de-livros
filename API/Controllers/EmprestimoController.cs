@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using API.Repositories;
 using Microsoft.AspNetCore.Authorization;
-using EmprestimoLivros.Models;
+using API.Models; // Certifique-se de importar o namespace que contém o modelo Livro
 
 namespace API.Controllers
 {
@@ -11,40 +11,43 @@ namespace API.Controllers
     {
         private readonly IEmprestimoRepository _repository;
         private readonly IUsuarioRepository _repositoryUsuarios;
+        private readonly ILivroRepository _livroRepository;
 
         public EmprestimoController(
             IEmprestimoRepository repository,
-            IUsuarioRepository repositoryUsuarios)
+            IUsuarioRepository repositoryUsuarios,
+            ILivroRepository livroRepository)
         {
             _repository = repository;
             _repositoryUsuarios = repositoryUsuarios;
+            _livroRepository = livroRepository;
         }
 
         [HttpPost("cadastrar")]
-        [Authorize(Roles = "administrador,comum")] // Permite acesso para administradores e comuns
+        [Authorize(Roles = "administrador")]
         public IActionResult Cadastrar([FromBody] Emprestimo emprestimo)
         {
-            // Pega o e-mail do usuário do token JWT
             var emailUsuario = User.Identity?.Name;
 
             if (string.IsNullOrEmpty(emailUsuario))
-            {
                 return Unauthorized(new { mensagem = "Usuário não identificado." });
-            }
 
-            // Busca o usuário pelo e-mail
             var usuario = _repositoryUsuarios.BuscarUsuarioPorEmail(emailUsuario);
 
             if (usuario == null)
-            {
                 return NotFound(new { mensagem = "Usuário não encontrado." });
-            }
 
-            // Associa o usuário ao empréstimo
+            if (emprestimo.LivroId <= 0)
+                return BadRequest(new { mensagem = "LivroId é obrigatório." });
+
+            var livro = _livroRepository.Listar().FirstOrDefault(l => l.Id == emprestimo.LivroId);
+            if (livro == null)
+                return NotFound(new { mensagem = "Livro não encontrado." });
+
             emprestimo.UsuarioId = usuario.Id;
             emprestimo.Usuario = usuario;
+            emprestimo.Livro = livro;
 
-            // Cadastra o empréstimo
             _repository.Cadastrar(emprestimo);
 
             return Created("", emprestimo);

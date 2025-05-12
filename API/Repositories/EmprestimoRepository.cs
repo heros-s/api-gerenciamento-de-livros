@@ -1,7 +1,7 @@
 
 using API.Data;
 using Microsoft.EntityFrameworkCore;
-using EmprestimoLivros.Models;
+using API.Models;
 namespace API.Repositories;
 
 public class EmprestimoRepository : IEmprestimoRepository

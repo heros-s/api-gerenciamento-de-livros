@@ -1,41 +1,41 @@
-using API.Data;
-using API.Models;
+    using API.Data;
+    using API.Models;
 
-namespace API.Repositories;
+    namespace API.Repositories;
 
-public class AutorRepository : IAutorRepository
-{
-    private readonly AppDataContext _context;
-
-    public AutorRepository(AppDataContext context)
+    public class AutorRepository : IAutorRepository
     {
-        _context = context;
-    }
+        private readonly AppDataContext _context;
 
-    public void Cadastrar(Autor autor)
-    {
-        _context.Autores.Add(autor);
-        _context.SaveChanges();
-    }
+        public AutorRepository(AppDataContext context)
+        {
+            _context = context;
+        }
 
-    public List<Autor> Listar()
-    {
-        return _context.Autores.ToList();
-    }
+        public void Cadastrar(Autor autor)
+        {
+            _context.Autores.Add(autor);
+            _context.SaveChanges();
+        }
 
-    public Autor? BuscarAutorPorId(int id)
-    {
-        return _context.Autores.Find(id);
-    }
+        public List<Autor> Listar()
+        {
+            return _context.Autores.ToList();
+        }
 
-    public void Deletar(Autor autor)
-    {
-        _context.Autores.Remove(autor);
-        _context.SaveChanges();
-    }
+        public Autor? BuscarAutorPorId(int id)
+        {
+            return _context.Autores.Find(id);
+        }
 
-    public void Salvar()
-    {
-        _context.SaveChanges();
+        public void Deletar(Autor autor)
+        {
+            _context.Autores.Remove(autor);
+            _context.SaveChanges();
+        }
+
+        public void Salvar()
+        {
+            _context.SaveChanges();
+        }
     }
-}

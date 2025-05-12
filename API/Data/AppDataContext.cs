@@ -1,5 +1,4 @@
 using API.Models;
-using EmprestimoLivros.Models;
 using Microsoft.EntityFrameworkCore;    
 
 namespace API.Data;

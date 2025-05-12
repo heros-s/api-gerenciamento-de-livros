@@ -5,9 +5,9 @@ POST {{url_base}}/usuario/cadastrar
 Content-Type: application/json
 
 {
-    "nome": "Admin",
-    "email": "adm",
-    "senha": "123456"
+    "nome": "Gustavo",
+    "email": "gustavo",
+    "senha": "1234567"
 }
 
 ### Login Usuário
@@ -15,13 +15,13 @@ POST {{url_base}}/usuario/login
 Content-Type: application/json
 
 {
-    "email": "adm",
-    "senha": "123456"
+    "email": "gustavo",
+    "senha": "1234567"
 }
 
 ### Listar Usuários
 GET {{url_base}}/usuario/listar
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTc0NzAxMjUwOX0.JlufNfqFeHw1txBd-ykPzyC-wrSHeSzj3pmpOUYYJ58
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZ3VzdGF2byIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluaXN0cmFkb3IiLCJleHAiOjE3NDcwMTU4MDh9.TK0l8jbFNr9Y--lU_Q1vljeuoi-HfGQbOnVss-6gkhA
 
 
 ### Deletar Usuário

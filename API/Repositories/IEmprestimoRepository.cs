@@ -1,5 +1,4 @@
 using API.Models;
-using EmprestimoLivros.Models;
 
 namespace API.Repositories
 {
