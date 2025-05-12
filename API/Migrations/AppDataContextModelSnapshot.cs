@@ -39,6 +39,41 @@ namespace API.Migrations
                     b.ToTable("Autores");
                 });
 
+            modelBuilder.Entity("API.Models.Emprestimo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("DataDevolucao")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DataEmprestimo")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("LivroId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Multa")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ValorLocacao")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LivroId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("emprestimos");
+                });
+
             modelBuilder.Entity("API.Models.Livro", b =>
                 {
                     b.Property<int>("Id")
@@ -96,53 +131,7 @@ namespace API.Migrations
                     b.ToTable("usuarios");
                 });
 
-            modelBuilder.Entity("EmprestimoLivros.Models.Emprestimo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("DataDevolucao")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("DataEmprestimo")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("LivroId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Multa")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ValorLocacao")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LivroId");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("emprestimos");
-                });
-
-            modelBuilder.Entity("API.Models.Livro", b =>
-                {
-                    b.HasOne("API.Models.Autor", "Autor")
-                        .WithMany("Livros")
-                        .HasForeignKey("AutorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Autor");
-                });
-
-            modelBuilder.Entity("EmprestimoLivros.Models.Emprestimo", b =>
+            modelBuilder.Entity("API.Models.Emprestimo", b =>
                 {
                     b.HasOne("API.Models.Livro", "Livro")
                         .WithMany()
@@ -159,6 +148,17 @@ namespace API.Migrations
                     b.Navigation("Livro");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("API.Models.Livro", b =>
+                {
+                    b.HasOne("API.Models.Autor", "Autor")
+                        .WithMany("Livros")
+                        .HasForeignKey("AutorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Autor");
                 });
 
             modelBuilder.Entity("API.Models.Autor", b =>

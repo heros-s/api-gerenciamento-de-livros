@@ -29,6 +29,13 @@ namespace API.Controllers
         {
             var emailUsuario = User.Identity?.Name;
 
+            int emprestimosAtivos = _repository.ContarEmprestimosAtivosPorUsuario(emprestimo.UsuarioId);
+
+            if (emprestimosAtivos >= 3)
+            {
+                return BadRequest("Usuário já possui o limite de 3 empréstimos ativos.");
+            }
+
             if (string.IsNullOrEmpty(emailUsuario))
                 return Unauthorized(new { mensagem = "Usuário não identificado." });
 

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20250512004403_Initial")]
-    partial class Initial
+    [Migration("20250512023953_Autor")]
+    partial class Autor
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,70 +42,7 @@ namespace API.Migrations
                     b.ToTable("Autores");
                 });
 
-            modelBuilder.Entity("API.Models.Livro", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AutorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Genero")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<double>("PrecoDia")
-                        .HasColumnType("double");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AutorId");
-
-                    b.ToTable("livros");
-                });
-
-            modelBuilder.Entity("API.Models.Usuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("Permissao")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("idade")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("usuarios");
-                });
-
-            modelBuilder.Entity("EmprestimoLivros.Models.Emprestimo", b =>
+            modelBuilder.Entity("API.Models.Emprestimo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -142,16 +79,62 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Livro", b =>
                 {
-                    b.HasOne("API.Models.Autor", "Autor")
-                        .WithMany("Livros")
-                        .HasForeignKey("AutorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Navigation("Autor");
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AutorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Genero")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AutorId");
+
+                    b.ToTable("livros");
                 });
 
-            modelBuilder.Entity("EmprestimoLivros.Models.Emprestimo", b =>
+            modelBuilder.Entity("API.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Permissao")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("usuarios");
+                });
+
+            modelBuilder.Entity("API.Models.Emprestimo", b =>
                 {
                     b.HasOne("API.Models.Livro", "Livro")
                         .WithMany()
@@ -168,6 +151,17 @@ namespace API.Migrations
                     b.Navigation("Livro");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("API.Models.Livro", b =>
+                {
+                    b.HasOne("API.Models.Autor", "Autor")
+                        .WithMany("Livros")
+                        .HasForeignKey("AutorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Autor");
                 });
 
             modelBuilder.Entity("API.Models.Autor", b =>

@@ -6,6 +6,7 @@ namespace API.Repositories
     {
         void Cadastrar(Emprestimo emprestimo);
         void Devolucao(int EmprestimoId);
+        int ContarEmprestimosAtivosPorUsuario(int usuarioId);
         List<Emprestimo> Listar();
         void Salvar();
     }

@@ -18,16 +18,22 @@ namespace API.Controllers
 
         [HttpPost("cadastrar")]
         [Authorize(Roles = "administrador")]
-        public IActionResult Cadastrar([FromBody] Livro livro)
+        public IActionResult Cadastrar([FromBody] Livro livro, [FromRoute] Autor autorNome)
         {
+            var autor = _repository.BuscarAutorPorId(livro.AutorId);
+
+            if (autor == null)
+                return BadRequest($"Autor com ID {livro.AutorId} não encontrado.");
+
+            livro.Autor = autorNome;
             _repository.Cadastrar(livro);
-            return Created("",livro);
+            return Created("", livro);
         }
 
         [HttpGet("listar")]
         public IActionResult Listar()
         {
-        return Ok(_repository.Listar());
+            return Ok(_repository.Listar());
         }
 
         [HttpDelete("deletar/{id}")]
@@ -36,7 +42,7 @@ namespace API.Controllers
             var livro = _repository.Listar().FirstOrDefault(l => l.Id == id);
             if (livro == null)
                 return NotFound($"Livro com ID {id} não encontrado");
-                
+
             _repository.Deletar(livro);
             return Ok();
         }

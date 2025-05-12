@@ -21,6 +21,13 @@ public class EmprestimoRepository : IEmprestimoRepository
         _context.SaveChanges();
     }
 
+    public int ContarEmprestimosAtivosPorUsuario(int usuarioId)
+    {
+        return _context.emprestimos
+            .Where(e => e.UsuarioId == usuarioId && e.DataDevolucao == null)
+            .Count();
+    }
+
     public void Devolucao(int emprestimoId)
     {
         var emprestimo = _context.emprestimos.Find(emprestimoId);

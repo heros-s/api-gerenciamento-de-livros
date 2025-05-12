@@ -8,6 +8,5 @@ public class Livro
     public string Nome { get; set; } = string.Empty;
     public string Genero { get; set; } = string.Empty;
     public int AutorId { get; set; }
-    [JsonIgnore]
-    public Autor Autor { get; set; } = new Autor();
+    public Autor? Autor { get; set; }
 }
