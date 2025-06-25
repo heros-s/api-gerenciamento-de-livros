@@ -46,6 +46,14 @@ builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 builder.Services.AddScoped<IAutorRepository, AutorRepository>();
 builder.Services.AddScoped<IEmprestimoRepository, EmprestimoRepository>();
 
+builder.Services.AddCors(options =>
+    options.AddPolicy("Acesso total",
+        configs => configs
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod())
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -55,6 +63,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("Acesso total");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
