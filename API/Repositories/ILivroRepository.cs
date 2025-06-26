@@ -7,5 +7,6 @@ public interface ILivroRepository
     List<Livro> Listar();
     Autor? BuscarAutorPorId(int id);
     void Deletar(Livro livro);
+    Livro? BuscarPorId(int id);
     void Salvar();
 }

@@ -28,6 +28,19 @@ function Menu() {
           </ListItemButton>
         </ListItem>
 
+        <ListItem disablePadding>
+          <ListItemButton component={Link} href="/livros/listar">
+            <ListItemText primary="Listar Livros" />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton component={Link} href="/autor/listar">
+            <ListItemText primary="Listar Autor" />
+          </ListItemButton>
+        </ListItem>
+
+
       </List>
     </Paper>
   );

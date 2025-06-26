@@ -35,6 +35,11 @@ public class LivroRepository : ILivroRepository
         return _context.livros.ToList();
     }
 
+    public Livro? BuscarPorId(int id)
+    {
+        return _context.livros.FirstOrDefault(l => l.Id == id);
+    }
+
     public void Salvar()
     {
         _context.SaveChanges();

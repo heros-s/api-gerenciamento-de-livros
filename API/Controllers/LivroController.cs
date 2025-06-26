@@ -36,15 +36,17 @@ namespace API.Controllers
             return Ok(_repository.Listar());
         }
 
+        //deletar livro
         [HttpDelete("deletar/{id}")]
+        [Authorize(Roles = "administrador")]
         public IActionResult Deletar(int id)
         {
-            var livro = _repository.Listar().FirstOrDefault(l => l.Id == id);
+            var livro = _repository.BuscarPorId(id);
             if (livro == null)
-                return NotFound($"Livro com ID {id} não encontrado");
+                return NotFound($"Livro com ID {id} não encontrado.");
 
             _repository.Deletar(livro);
-            return Ok();
+            return NoContent();
         }
     }
 }
